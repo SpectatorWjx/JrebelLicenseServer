@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class JetBrainsHandler {
-    public static void releaseTicketHandler(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public static void releaseTicketHandler(Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html; charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
         String salt = request.getParameter("salt");
@@ -26,7 +26,7 @@ public class JetBrainsHandler {
         }
     }
 
-    public static void pingHandler(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public static void pingHandler(Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html; charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
         String salt = request.getParameter("salt");
@@ -42,14 +42,11 @@ public class JetBrainsHandler {
 
     }
 
-    public static void obtainTicketHandler(String target, Request baseRequest, HttpServletRequest request,
+    public static void obtainTicketHandler(Request baseRequest, HttpServletRequest request,
                                            HttpServletResponse response) throws IOException {
         response.setContentType("text/html; charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
         SimpleDateFormat fm = new SimpleDateFormat("EEE,d MMM yyyy hh:mm:ss Z", Locale.ENGLISH);
-        String date = fm.format(new Date()) + " GMT";
-        //response.setHeader("Date", date);
-        //response.setHeader("Server", "fasthttp");
         String salt = request.getParameter("salt");
         String username = request.getParameter("userName");
         String prolongationPeriod = "607875500";

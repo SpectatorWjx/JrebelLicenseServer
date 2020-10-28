@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 public class ToolHandler {
-    public static void guidHandler(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public static void guidHandler(Request baseRequest, HttpServletResponse response) throws IOException {
         response.setContentType("text/html; charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
         baseRequest.setHandled(true);
